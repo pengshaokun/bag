@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhskg.bag.server.mapper.RegisterUserMapper">
+  <resultMap id="BaseResultMap" type="com.zhskg.bag.entity.RegisterUser">
+    <id column="register_id" jdbcType="BIGINT" property="registerId" />
+    <result column="account" jdbcType="CHAR" property="account" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="nike" jdbcType="VARCHAR" property="nike" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="head" jdbcType="VARCHAR" property="head" />
+    <result column="register_time" jdbcType="TIMESTAMP" property="registerTime" />
+    <result column="lastlogin_time" jdbcType="TIMESTAMP" property="lastloginTime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="last_login_device_id" jdbcType="VARCHAR" property="lastLoginDeviceId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    register_id, account, password, nike,email,head, register_time, lastlogin_time, status,
+    last_login_device_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_register_user
+    where register_id = #{registerId,jdbcType=BIGINT}
+  </select>
+  <insert id="insert" parameterType="com.zhskg.bag.entity.RegisterUser">
+    insert into t_register_user (register_id, account, password, 
+      nike,email,head, register_time,
+      lastlogin_time, status, last_login_device_id
+      )
+    values (#{registerId,jdbcType=BIGINT}, #{account,jdbcType=CHAR}, #{password,jdbcType=VARCHAR}, 
+      #{nike,jdbcType=VARCHAR},#{email,jdbcType=VARCHAR}, #{head,jdbcType=VARCHAR}, #{registerTime,jdbcType=TIMESTAMP},
+      #{lastloginTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, #{lastLoginDeviceId,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective"  useGeneratedKeys="true" keyProperty="registerId" parameterType="com.zhskg.bag.entity.RegisterUser">
+    insert into t_register_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="registerId != null">
+        register_id,
+      </if>
+      <if test="account != null">
+        account,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="nike != null">
+        nike,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="head != null">
+        head,
+      </if>
+      <if test="registerTime != null">
+        register_time,
+      </if>
+      <if test="lastloginTime != null">
+        lastlogin_time,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="lastLoginDeviceId != null">
+        last_login_device_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="registerId != null">
+        #{registerId,jdbcType=BIGINT},
+      </if>
+      <if test="account != null">
+        #{account,jdbcType=CHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="nike != null">
+        #{nike,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="head != null">
+        #{head,jdbcType=VARCHAR},
+      </if>
+      <if test="registerTime != null">
+        #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastloginTime != null">
+        #{lastloginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="lastLoginDeviceId != null">
+        #{lastLoginDeviceId,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhskg.bag.entity.RegisterUser">
+    update t_register_user
+    <set>
+      <if test="account != null">
+        account = #{account,jdbcType=CHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="nike != null">
+        nike = #{nike,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        nike = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="head != null">
+        head = #{head,jdbcType=VARCHAR},
+      </if>
+      <if test="registerTime != null">
+        register_time = #{registerTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastloginTime != null">
+        lastlogin_time = #{lastloginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="lastLoginDeviceId != null">
+        last_login_device_id = #{lastLoginDeviceId,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where register_id = #{registerId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhskg.bag.entity.RegisterUser">
+    update t_register_user
+    set account = #{account,jdbcType=CHAR},
+      password = #{password,jdbcType=VARCHAR},
+      nike = #{nike,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      head = #{head,jdbcType=VARCHAR},
+      register_time = #{registerTime,jdbcType=TIMESTAMP},
+      lastlogin_time = #{lastloginTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      last_login_device_id = #{lastLoginDeviceId,jdbcType=VARCHAR}
+    where register_id = #{registerId,jdbcType=BIGINT}
+  </update>
+
+  <select id="checkEmail" resultType="java.lang.Integer" parameterType="java.lang.String">
+      SELECT COUNT(*)
+      FROM t_register_user
+      <!-- WHERE status = 0 AND email = #{email,jdbcType=VARCHAR} -->
+      WHERE email = #{email,jdbcType=VARCHAR}
+  </select>
+
+  <select id="checkPhoneNo" resultType="java.lang.Integer" parameterType="java.lang.String">
+        SELECT COUNT(*)
+        FROM t_register_user
+        <!-- WHERE status = 0 AND email = #{email,jdbcType=VARCHAR} -->
+        WHERE account = #{account,jdbcType=VARCHAR}
+    </select>
+</mapper>

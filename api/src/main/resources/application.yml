@@ -1,0 +1,31 @@
+# 服务端口号
+server.port: 8081
+spring:
+  application:
+    name: api
+  profiles:
+    active: @profiles.active@
+
+#dubbo 配置
+dubbo:
+  application:
+    name: consumer
+  registry:
+    address: zookeeper://39.105.48.224:2181
+#扫描包以 "," 分隔
+  packageName: com.zhskg.bag.rest.controller.web,com.zhskg.bag.rest.controller.app
+---
+spring:
+  profiles: dev
+
+dubbo:
+  registry:
+    address:  zookeeper://39.105.48.224:2181
+
+---
+spring:
+  profiles: prod
+
+dubbo:
+  registry:
+    address: zookeeper://39.105.48.224:2181

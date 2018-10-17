@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhskg.bag.server.mapper.BagInfoMapper">
+  <resultMap id="BaseResultMap" type="com.zhskg.bag.entity.BagInfo">
+    <id column="bag_info_id" jdbcType="BIGINT" property="bagInfoId" />
+    <result column="bag_id" jdbcType="VARCHAR" property="bagId" />
+    <result column="factory_no" jdbcType="VARCHAR" property="factoryNo" />
+    <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="ble_mac" jdbcType="VARCHAR" property="bleMac" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="add_time" jdbcType="TIMESTAMP" property="addTime" />
+    <result column="lost_time" jdbcType="TIMESTAMP" property="lostTime" />
+    <result column="current_user_id" jdbcType="BIGINT" property="currentUserId" />
+    <result column="conn_password" jdbcType="VARCHAR" property="connPassword" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    bag_info_id, bag_id, factory_no, product_name, ble_mac, status, add_time, lost_time, 
+    current_user_id, conn_password
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_bag_info
+    where bag_info_id = #{bagInfoId,jdbcType=BIGINT}
+  </select>
+  <insert id="insert" parameterType="com.zhskg.bag.entity.BagInfo">
+    insert into t_bag_info (bag_info_id, bag_id, factory_no, 
+      product_name, ble_mac, status, 
+      add_time, lost_time, current_user_id, 
+      conn_password)
+    values (#{bagInfoId,jdbcType=BIGINT}, #{bagId,jdbcType=VARCHAR}, #{factoryNo,jdbcType=VARCHAR}, 
+      #{productName,jdbcType=VARCHAR}, #{bleMac,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{addTime,jdbcType=TIMESTAMP}, #{lostTime,jdbcType=TIMESTAMP}, #{currentUserId,jdbcType=BIGINT}, 
+      #{connPassword,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhskg.bag.entity.BagInfo" useGeneratedKeys="true" keyProperty="bagInfoId">
+    insert into t_bag_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="bagInfoId != null">
+        bag_info_id,
+      </if>
+      <if test="bagId != null">
+        bag_id,
+      </if>
+      <if test="factoryNo != null">
+        factory_no,
+      </if>
+      <if test="productName != null">
+        product_name,
+      </if>
+      <if test="bleMac != null">
+        ble_mac,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="addTime != null">
+        add_time,
+      </if>
+      <if test="lostTime != null">
+        lost_time,
+      </if>
+      <if test="currentUserId != null">
+        current_user_id,
+      </if>
+      <if test="connPassword != null">
+        conn_password,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="bagInfoId != null">
+        #{bagInfoId,jdbcType=BIGINT},
+      </if>
+      <if test="bagId != null">
+        #{bagId,jdbcType=VARCHAR},
+      </if>
+      <if test="factoryNo != null">
+        #{factoryNo,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="bleMac != null">
+        #{bleMac,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null">
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lostTime != null">
+        #{lostTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="currentUserId != null">
+        #{currentUserId,jdbcType=BIGINT},
+      </if>
+      <if test="connPassword != null">
+        #{connPassword,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhskg.bag.entity.BagInfo">
+    update t_bag_info
+    <set>
+      <if test="bagId != null">
+        bag_id = #{bagId,jdbcType=VARCHAR},
+      </if>
+      <if test="factoryNo != null">
+        factory_no = #{factoryNo,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null">
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="bleMac != null">
+        ble_mac = #{bleMac,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null">
+        add_time = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lostTime != null">
+        lost_time = #{lostTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="currentUserId != null">
+        current_user_id = #{currentUserId,jdbcType=BIGINT},
+      </if>
+      <if test="connPassword != null">
+        conn_password = #{connPassword,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where bag_info_id = #{bagInfoId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhskg.bag.entity.BagInfo">
+    update t_bag_info
+    set bag_id = #{bagId,jdbcType=VARCHAR},
+      factory_no = #{factoryNo,jdbcType=VARCHAR},
+      product_name = #{productName,jdbcType=VARCHAR},
+      ble_mac = #{bleMac,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      lost_time = #{lostTime,jdbcType=TIMESTAMP},
+      current_user_id = #{currentUserId,jdbcType=BIGINT},
+      conn_password = #{connPassword,jdbcType=VARCHAR}
+    where bag_info_id = #{bagInfoId,jdbcType=BIGINT}
+  </update>
+
+  <select id="selectByBagId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from t_bag_info
+    where bag_id = #{bagId,jdbcType=VARCHAR}
+  </select>
+
+  <!--获取列表-->
+  <select id="getList" resultMap="BaseResultMap" parameterType="map">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM  t_bag_info
+    <where>
+      <if test="bagId!=null and bagId!=''">
+        AND bag_id=#{bagId,jdbcType=VARCHAR}
+      </if>
+    </where>
+    ORDER BY add_time DESC
+  </select>
+</mapper>

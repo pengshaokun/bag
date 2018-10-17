@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhskg.bag.server.mapper.RegisterAuthenticationMapper">
+  <resultMap id="BaseResultMap" type="com.zhskg.bag.entity.RegisterAuthentication">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="register_id" jdbcType="BIGINT" property="registerId" />
+    <result column="sex" jdbcType="INTEGER" property="sex" />
+    <result column="id_num" jdbcType="VARCHAR" property="idNum" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="birthday" jdbcType="TIMESTAMP" property="birthday" />
+    <result column="id_file_pos" jdbcType="VARCHAR" property="idFilePos" />
+    <result column="id_file_nag" jdbcType="VARCHAR" property="idFileNag" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="reason" jdbcType="VARCHAR" property="reason" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, register_id, sex, id_num, name, birthday, id_file_pos, id_file_nag, status, reason
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_register_authentication
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <insert id="insert" parameterType="com.zhskg.bag.entity.RegisterAuthentication">
+    insert into t_register_authentication (id, register_id, sex, 
+      id_num, name, birthday, 
+      id_file_pos, id_file_nag, status, 
+      reason)
+    values (#{id,jdbcType=BIGINT}, #{registerId,jdbcType=BIGINT}, #{sex,jdbcType=INTEGER}, 
+      #{idNum,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{birthday,jdbcType=TIMESTAMP}, 
+      #{idFilePos,jdbcType=VARCHAR}, #{idFileNag,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{reason,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhskg.bag.entity.RegisterAuthentication">
+    insert into t_register_authentication
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="registerId != null">
+        register_id,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="idNum != null">
+        id_num,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="idFilePos != null">
+        id_file_pos,
+      </if>
+      <if test="idFileNag != null">
+        id_file_nag,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="reason != null">
+        reason,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="registerId != null">
+        #{registerId,jdbcType=BIGINT},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="idNum != null">
+        #{idNum,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="idFilePos != null">
+        #{idFilePos,jdbcType=VARCHAR},
+      </if>
+      <if test="idFileNag != null">
+        #{idFileNag,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="reason != null">
+        #{reason,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhskg.bag.entity.RegisterAuthentication">
+    update t_register_authentication
+    <set>
+      <if test="registerId != null">
+        register_id = #{registerId,jdbcType=BIGINT},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="idNum != null">
+        id_num = #{idNum,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=TIMESTAMP},
+      </if>
+      <if test="idFilePos != null">
+        id_file_pos = #{idFilePos,jdbcType=VARCHAR},
+      </if>
+      <if test="idFileNag != null">
+        id_file_nag = #{idFileNag,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="reason != null">
+        reason = #{reason,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhskg.bag.entity.RegisterAuthentication">
+    update t_register_authentication
+    set register_id = #{registerId,jdbcType=BIGINT},
+      sex = #{sex,jdbcType=INTEGER},
+      id_num = #{idNum,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=TIMESTAMP},
+      id_file_pos = #{idFilePos,jdbcType=VARCHAR},
+      id_file_nag = #{idFileNag,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      reason = #{reason,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

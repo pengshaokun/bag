@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhskg.bag.server.mapper.ReportBagMapper">
+  <resultMap id="BaseResultMap" type="com.zhskg.bag.entity.ReportBag">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="register_id" jdbcType="BIGINT" property="registerId" />
+    <result column="bag_info_id" jdbcType="BIGINT" property="bagInfoId" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="result" jdbcType="VARCHAR" property="result" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="sys_user_id" jdbcType="BIGINT" property="sysUserId" />
+    <result column="declaration_time" jdbcType="TIMESTAMP" property="declarationTime" />
+    <result column="dispose_time" jdbcType="TIMESTAMP" property="disposeTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, register_id, bag_info_id, phone, content, url, result, status, sys_user_id, declaration_time, 
+    dispose_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_report_bag
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <insert id="insert" parameterType="com.zhskg.bag.entity.ReportBag">
+    insert into t_report_bag (id, register_id, bag_info_id, 
+      phone, content, url, 
+      result, status, sys_user_id, 
+      declaration_time, dispose_time)
+    values (#{id,jdbcType=BIGINT}, #{registerId,jdbcType=BIGINT}, #{bagInfoId,jdbcType=BIGINT}, 
+      #{phone,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
+      #{result,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{sysUserId,jdbcType=BIGINT}, 
+      #{declarationTime,jdbcType=TIMESTAMP}, #{disposeTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhskg.bag.entity.ReportBag">
+    insert into t_report_bag
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="registerId != null">
+        register_id,
+      </if>
+      <if test="bagInfoId != null">
+        bag_info_id,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="url != null">
+        url,
+      </if>
+      <if test="result != null">
+        result,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="sysUserId != null">
+        sys_user_id,
+      </if>
+      <if test="declarationTime != null">
+        declaration_time,
+      </if>
+      <if test="disposeTime != null">
+        dispose_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="registerId != null">
+        #{registerId,jdbcType=BIGINT},
+      </if>
+      <if test="bagInfoId != null">
+        #{bagInfoId,jdbcType=BIGINT},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="result != null">
+        #{result,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="sysUserId != null">
+        #{sysUserId,jdbcType=BIGINT},
+      </if>
+      <if test="declarationTime != null">
+        #{declarationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="disposeTime != null">
+        #{disposeTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhskg.bag.entity.ReportBag">
+    update t_report_bag
+    <set>
+      <if test="registerId != null">
+        register_id = #{registerId,jdbcType=BIGINT},
+      </if>
+      <if test="bagInfoId != null">
+        bag_info_id = #{bagInfoId,jdbcType=BIGINT},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null">
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="result != null">
+        result = #{result,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="sysUserId != null">
+        sys_user_id = #{sysUserId,jdbcType=BIGINT},
+      </if>
+      <if test="declarationTime != null">
+        declaration_time = #{declarationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="disposeTime != null">
+        dispose_time = #{disposeTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhskg.bag.entity.ReportBag">
+    update t_report_bag
+    set register_id = #{registerId,jdbcType=BIGINT},
+      bag_info_id = #{bagInfoId,jdbcType=BIGINT},
+      phone = #{phone,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      result = #{result,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      sys_user_id = #{sysUserId,jdbcType=BIGINT},
+      declaration_time = #{declarationTime,jdbcType=TIMESTAMP},
+      dispose_time = #{disposeTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

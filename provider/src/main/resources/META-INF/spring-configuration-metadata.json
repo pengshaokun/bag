@@ -1,0 +1,470 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties",
+      "name": "dubbo",
+      "type": "com.zhskg.bag.server.config.properties.DubboConfigProperties"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties",
+      "name": "dubbo.application",
+      "type": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Application"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties",
+      "name": "dubbo.protocol",
+      "type": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Protocol"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties",
+      "name": "dubbo.registry",
+      "type": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Registry"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.JwtProperties",
+      "name": "jwt",
+      "type": "com.zhskg.bag.server.config.properties.JwtProperties"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.RedisConfigProperties",
+      "name": "redis",
+      "type": "com.zhskg.bag.server.config.properties.RedisConfigProperties"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.SmsProperties",
+      "name": "sms",
+      "type": "com.zhskg.bag.server.config.properties.SmsProperties"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.SmsProperties",
+      "name": "sms.register",
+      "type": "com.zhskg.bag.server.config.properties.SmsProperties$SmsRegister"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Application",
+      "name": "dubbo.application.architecture",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Application",
+      "name": "dubbo.application.compiler",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Application",
+      "name": "dubbo.application.default",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Application",
+      "name": "dubbo.application.environment",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Application",
+      "name": "dubbo.application.id",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Application",
+      "name": "dubbo.application.is-default",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Application",
+      "name": "dubbo.application.legacy-properties",
+      "type": "java.util.Map<java.lang.String,java.lang.String>"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Application",
+      "name": "dubbo.application.logger",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Application",
+      "name": "dubbo.application.monitor",
+      "type": "com.alibaba.dubbo.config.MonitorConfig"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Application",
+      "name": "dubbo.application.name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Application",
+      "name": "dubbo.application.organization",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Application",
+      "name": "dubbo.application.owner",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Application",
+      "name": "dubbo.application.registries",
+      "type": "java.util.List<com.alibaba.dubbo.config.RegistryConfig>"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Application",
+      "name": "dubbo.application.registry",
+      "type": "com.alibaba.dubbo.config.RegistryConfig"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Application",
+      "name": "dubbo.application.version",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties",
+      "name": "dubbo.package-name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Protocol",
+      "name": "dubbo.protocol.accepts",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Protocol",
+      "name": "dubbo.protocol.accesslog",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Protocol",
+      "name": "dubbo.protocol.buffer",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Protocol",
+      "name": "dubbo.protocol.charset",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Protocol",
+      "name": "dubbo.protocol.client",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Protocol",
+      "name": "dubbo.protocol.codec",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Protocol",
+      "name": "dubbo.protocol.contextpath",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Protocol",
+      "name": "dubbo.protocol.default",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Protocol",
+      "name": "dubbo.protocol.dispatcher",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Protocol",
+      "deprecated": true,
+      "name": "dubbo.protocol.dispather",
+      "type": "java.lang.String",
+      "deprecation": {}
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Protocol",
+      "name": "dubbo.protocol.exchanger",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Protocol",
+      "name": "dubbo.protocol.heartbeat",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Protocol",
+      "name": "dubbo.protocol.host",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Protocol",
+      "name": "dubbo.protocol.id",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Protocol",
+      "name": "dubbo.protocol.iothreads",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Protocol",
+      "name": "dubbo.protocol.is-default",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Protocol",
+      "name": "dubbo.protocol.legacy-properties",
+      "type": "java.util.Map<java.lang.String,java.lang.String>"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Protocol",
+      "name": "dubbo.protocol.name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Protocol",
+      "name": "dubbo.protocol.networker",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Protocol",
+      "name": "dubbo.protocol.parameters",
+      "type": "java.util.Map<java.lang.String,java.lang.String>"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Protocol",
+      "deprecated": true,
+      "name": "dubbo.protocol.path",
+      "type": "java.lang.String",
+      "deprecation": {}
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Protocol",
+      "name": "dubbo.protocol.payload",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Protocol",
+      "name": "dubbo.protocol.port",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Protocol",
+      "name": "dubbo.protocol.prompt",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Protocol",
+      "name": "dubbo.protocol.queues",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Protocol",
+      "name": "dubbo.protocol.register",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Protocol",
+      "name": "dubbo.protocol.serialization",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Protocol",
+      "name": "dubbo.protocol.server",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Protocol",
+      "name": "dubbo.protocol.status",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Protocol",
+      "name": "dubbo.protocol.telnet",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Protocol",
+      "name": "dubbo.protocol.threadpool",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Protocol",
+      "name": "dubbo.protocol.threads",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Protocol",
+      "name": "dubbo.protocol.transporter",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Registry",
+      "name": "dubbo.registry.address",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Registry",
+      "name": "dubbo.registry.check",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Registry",
+      "name": "dubbo.registry.client",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Registry",
+      "name": "dubbo.registry.cluster",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Registry",
+      "name": "dubbo.registry.default",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Registry",
+      "name": "dubbo.registry.dynamic",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Registry",
+      "name": "dubbo.registry.file",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Registry",
+      "name": "dubbo.registry.group",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Registry",
+      "name": "dubbo.registry.id",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Registry",
+      "name": "dubbo.registry.is-default",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Registry",
+      "name": "dubbo.registry.legacy-properties",
+      "type": "java.util.Map<java.lang.String,java.lang.String>"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Registry",
+      "name": "dubbo.registry.parameters",
+      "type": "java.util.Map<java.lang.String,java.lang.String>"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Registry",
+      "name": "dubbo.registry.password",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Registry",
+      "name": "dubbo.registry.port",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Registry",
+      "name": "dubbo.registry.protocol",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Registry",
+      "name": "dubbo.registry.register",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Registry",
+      "name": "dubbo.registry.server",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Registry",
+      "name": "dubbo.registry.session",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Registry",
+      "name": "dubbo.registry.subscribe",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Registry",
+      "name": "dubbo.registry.timeout",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Registry",
+      "deprecated": true,
+      "name": "dubbo.registry.transport",
+      "type": "java.lang.String",
+      "deprecation": {}
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Registry",
+      "name": "dubbo.registry.transporter",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Registry",
+      "name": "dubbo.registry.username",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Registry",
+      "name": "dubbo.registry.version",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Registry",
+      "deprecated": true,
+      "name": "dubbo.registry.wait",
+      "type": "java.lang.Integer",
+      "deprecation": {}
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties$Registry",
+      "name": "dubbo.registry.wait",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.DubboConfigProperties",
+      "name": "dubbo.scan",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.JwtProperties",
+      "name": "jwt.expire-time",
+      "type": "java.time.Duration"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.JwtProperties",
+      "name": "jwt.secret",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.SmsProperties",
+      "name": "sms.app-key",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.SmsProperties",
+      "name": "sms.app-secret",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.SmsProperties",
+      "name": "sms.expire-time",
+      "type": "java.time.Duration"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.SmsProperties$SmsRegister",
+      "name": "sms.register.sign",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.zhskg.bag.server.config.properties.SmsProperties$SmsRegister",
+      "name": "sms.register.template",
+      "type": "java.lang.String"
+    }
+  ]
+}

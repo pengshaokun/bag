@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhskg.bag.server.mapper.RegisterUserDeviceMapper">
+  <resultMap id="BaseResultMap" type="com.zhskg.bag.entity.RegisterUserDevice">
+    <id column="device_id" jdbcType="BIGINT" property="deviceId" />
+    <result column="register_id" jdbcType="BIGINT" property="registerId" />
+    <result column="device_serial_no" jdbcType="VARCHAR" property="deviceSerialNo" />
+    <result column="brand" jdbcType="VARCHAR" property="brand" />
+    <result column="model" jdbcType="VARCHAR" property="model" />
+    <result column="device_token" jdbcType="VARCHAR" property="deviceToken" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    device_id, register_id, device_serial_no, brand, model, device_token, type
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_register_user_device
+    where device_id = #{deviceId,jdbcType=BIGINT}
+  </select>
+  <insert id="insert" parameterType="com.zhskg.bag.entity.RegisterUserDevice">
+    insert into t_register_user_device (device_id, register_id, device_serial_no, 
+      brand, model, device_token, 
+      type)
+    values (#{deviceId,jdbcType=BIGINT}, #{registerId,jdbcType=BIGINT}, #{deviceSerialNo,jdbcType=VARCHAR}, 
+      #{brand,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, #{deviceToken,jdbcType=VARCHAR}, 
+      #{type,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" keyProperty="deviceId" useGeneratedKeys="true" parameterType="com.zhskg.bag.entity.RegisterUserDevice">
+    insert into t_register_user_device
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="deviceId != null">
+        device_id,
+      </if>
+      <if test="registerId != null">
+        register_id,
+      </if>
+      <if test="deviceSerialNo != null">
+        device_serial_no,
+      </if>
+      <if test="brand != null">
+        brand,
+      </if>
+      <if test="model != null">
+        model,
+      </if>
+      <if test="deviceToken != null">
+        device_token,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="deviceId != null">
+        #{deviceId,jdbcType=BIGINT},
+      </if>
+      <if test="registerId != null">
+        #{registerId,jdbcType=BIGINT},
+      </if>
+      <if test="deviceSerialNo != null">
+        #{deviceSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null">
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null">
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceToken != null">
+        #{deviceToken,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhskg.bag.entity.RegisterUserDevice">
+    update t_register_user_device
+    <set>
+      <if test="registerId != null">
+        register_id = #{registerId,jdbcType=BIGINT},
+      </if>
+      <if test="deviceSerialNo != null">
+        device_serial_no = #{deviceSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null">
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null">
+        model = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="deviceToken != null">
+        device_token = #{deviceToken,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
+    </set>
+    where device_id = #{deviceId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhskg.bag.entity.RegisterUserDevice">
+    update t_register_user_device
+    set register_id = #{registerId,jdbcType=BIGINT},
+      device_serial_no = #{deviceSerialNo,jdbcType=VARCHAR},
+      brand = #{brand,jdbcType=VARCHAR},
+      model = #{model,jdbcType=VARCHAR},
+      device_token = #{deviceToken,jdbcType=VARCHAR},
+      type = #{type,jdbcType=INTEGER}
+    where device_id = #{deviceId,jdbcType=BIGINT}
+  </update>
+</mapper>

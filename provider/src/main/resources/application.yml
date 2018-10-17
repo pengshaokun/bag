@@ -1,0 +1,107 @@
+# 服务端口号
+server.port: 8082
+spring:
+  application:
+    name: provider
+  profiles:
+    active: @profiles.active@
+#jdbc 配置
+  datasource:
+    url: jdbc:mysql://39.105.48.224:3306/smart_bag?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: Aa123456!
+    driver-class-name: com.mysql.jdbc.Driver
+
+#redis
+  redis:
+    #数据库索引
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    password: zhsRedis@123
+    jedis:
+      pool:
+        #最大连接数
+        max-active: 8
+        #最大阻塞等待时间(负数表示没限制)
+        max-wait: -1ms
+        #最大空闲
+        max-idle: 8
+        #最小空闲
+        min-idle: 0
+      #连接超时时间
+    timeout: 10000s
+
+#mybatis 配置
+mybatis:
+  configuration-properties: classpath:mybatis-config.xml
+
+#dubbo 配置
+dubbo:
+  protocol:
+    name: dubbo
+    port: 20883
+  application:
+    name: provider
+  registry:
+    address: zookeeper://39.105.48.224:2181
+  packageName: com.zhskg.bag.server.dubbo
+
+#jwt 配置
+jwt:
+  secret: MDk4ZjZiY2Q0NjIxZDM3M2NhZGU0ZTgzMjYyN2I0ZjY=
+  expireTime: 24h
+
+
+#短信配置
+sms:
+  appKey: 23847756
+  appSecret: 43b99aa2627b6d5059c74955e3d804a7
+  expireTime: 5m
+  register:
+    template: SMS_67670314
+    sign: 智慧式控股
+
+#分环境配置
+---
+spring:
+  profiles: dev
+  #数据库
+  datasource:
+      url: jdbc:mysql://localhost:3306/smart_bag?autoReconnect=true
+      username: root
+      password: java
+  #redis
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: zhsRedis@123
+    timeout: 123m
+#dubbo
+dubbo:
+  protocol:
+    port: 20883
+  registry:
+    address: zookeeper://39.105.48.224:2181
+
+---
+spring:
+  profiles: prod
+  #数据库
+  datasource:
+      url: jdbc:mysql://39.105.48.224:3306/smart_bag?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&useSSL=true
+      username: root
+      password: Aa123456!
+  #redis
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: zhsRedis@123
+    timeout:
+#dubbo
+dubbo:
+  protocol:
+    port: 20883
+  registry:
+    address: zookeeper://39.105.48.224:2181
+

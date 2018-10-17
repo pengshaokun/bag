@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhskg.bag.server.mapper.RegisterBagInfoMapper">
+  <resultMap id="BaseResultMap" type="com.zhskg.bag.entity.RegisterBagInfo">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="register_id" jdbcType="BIGINT" property="registerId" />
+    <result column="bag_info_id" jdbcType="BIGINT" property="bagInfoId" />
+    <result column="auth_id" jdbcType="BIGINT" property="authId" />
+    <result column="auth_time" jdbcType="TIMESTAMP" property="authTime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="light" jdbcType="VARCHAR" property="light" />
+    <result column="safe_dist" jdbcType="DOUBLE" property="safeDist" />
+    <result column="cancel_auth_time" jdbcType="TIMESTAMP" property="cancelAuthTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, register_id, bag_info_id, auth_id, auth_time, status, light, safe_dist, cancel_auth_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_register_bag_info
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <insert id="insert" parameterType="com.zhskg.bag.entity.RegisterBagInfo">
+    insert into t_register_bag_info (id, register_id, bag_info_id, 
+      auth_id, auth_time, status, 
+      light, safe_dist, cancel_auth_time
+      )
+    values (#{id,jdbcType=BIGINT}, #{registerId,jdbcType=BIGINT}, #{bagInfoId,jdbcType=BIGINT}, 
+      #{authId,jdbcType=BIGINT}, #{authTime,jdbcType=TIMESTAMP}, #{status,jdbcType=INTEGER}, 
+      #{light,jdbcType=VARCHAR}, #{safeDist,jdbcType=DOUBLE}, #{cancelAuthTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zhskg.bag.entity.RegisterBagInfo">
+    insert into t_register_bag_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="registerId != null">
+        register_id,
+      </if>
+      <if test="bagInfoId != null">
+        bag_info_id,
+      </if>
+      <if test="authId != null">
+        auth_id,
+      </if>
+      <if test="authTime != null">
+        auth_time,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="light != null">
+        light,
+      </if>
+      <if test="safeDist != null">
+        safe_dist,
+      </if>
+      <if test="cancelAuthTime != null">
+        cancel_auth_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="registerId != null">
+        #{registerId,jdbcType=BIGINT},
+      </if>
+      <if test="bagInfoId != null">
+        #{bagInfoId,jdbcType=BIGINT},
+      </if>
+      <if test="authId != null">
+        #{authId,jdbcType=BIGINT},
+      </if>
+      <if test="authTime != null">
+        #{authTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="light != null">
+        #{light,jdbcType=VARCHAR},
+      </if>
+      <if test="safeDist != null">
+        #{safeDist,jdbcType=DOUBLE},
+      </if>
+      <if test="cancelAuthTime != null">
+        #{cancelAuthTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhskg.bag.entity.RegisterBagInfo">
+    update t_register_bag_info
+    <set>
+      <if test="registerId != null">
+        register_id = #{registerId,jdbcType=BIGINT},
+      </if>
+      <if test="bagInfoId != null">
+        bag_info_id = #{bagInfoId,jdbcType=BIGINT},
+      </if>
+      <if test="authId != null">
+        auth_id = #{authId,jdbcType=BIGINT},
+      </if>
+      <if test="authTime != null">
+        auth_time = #{authTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="light != null">
+        light = #{light,jdbcType=VARCHAR},
+      </if>
+      <if test="safeDist != null">
+        safe_dist = #{safeDist,jdbcType=DOUBLE},
+      </if>
+      <if test="cancelAuthTime != null">
+        cancel_auth_time = #{cancelAuthTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zhskg.bag.entity.RegisterBagInfo">
+    update t_register_bag_info
+    set register_id = #{registerId,jdbcType=BIGINT},
+      bag_info_id = #{bagInfoId,jdbcType=BIGINT},
+      auth_id = #{authId,jdbcType=BIGINT},
+      auth_time = #{authTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=INTEGER},
+      light = #{light,jdbcType=VARCHAR},
+      safe_dist = #{safeDist,jdbcType=DOUBLE},
+      cancel_auth_time = #{cancelAuthTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <select id="selectByRegisterUserIdAndBagId" resultType="RegisterBagInfo">
+    select
+    <include refid="Base_Column_List" />
+    from t_register_bag_info
+    where register_id = #{registerUserId,jdbcType=BIGINT} and bag_info_id = #{bagId,jdbcType=BIGINT}
+  </select>
+</mapper>
